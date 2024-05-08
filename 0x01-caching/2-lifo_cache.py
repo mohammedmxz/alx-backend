@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""
-LIFO Caching
-"""
+# LIFO Caching
 
 BaseCaching = __import__('base_caching').BaseCaching
+
 
 class LIFOCache(BaseCaching):
     """
