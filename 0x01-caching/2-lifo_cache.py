@@ -3,26 +3,30 @@
 LIFO Caching
 """
 
-
 BaseCaching = __import__('base_caching').BaseCaching
-
 
 class LIFOCache(BaseCaching):
     """
-     class LIFOCache that inherits from BaseCaching and is a caching system
+    LIFOCache class that inherits from BaseCaching and implements a LIFO caching system.
     """
 
     def __init__(self):
         """
-        Init method
+        Initialize the LIFOCache instance.
         """
         super().__init__()
         self.key_indexes = []
 
     def put(self, key, item):
         """
-        Must assign to the dictionary self.cache_data
-        the item value for the key key.
+        Add an item to the cache.
+
+        Args:
+            key: The key for the item.
+            item: The item to be stored.
+
+        Returns:
+            None
         """
         if key and item:
             if len(self.cache_data) >= self.MAX_ITEMS:
@@ -39,7 +43,13 @@ class LIFOCache(BaseCaching):
 
     def get(self, key):
         """
-        Must return the value in self.cache_data linked to key.
+        Retrieve an item from the cache.
+
+        Args:
+            key: The key of the item to retrieve.
+
+        Returns:
+            The value associated with the given key, or None if the key doesn't exist.
         """
         if key in self.cache_data:
             return self.cache_data[key]
